@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * Bright Nucleus Keys.
  *
@@ -27,6 +27,7 @@ use JsonSerializable;
  */
 class Key implements Serializable, JsonSerializable, Validatable
 {
+
     /**
      * Internal storage.
      *

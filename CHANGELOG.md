@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased] - 2017-07-05
+### Changed
+- Declare strict types in every file.
+
 ## [0.1.1] - 2017-07-05
 ### Changed
 - Adapt PHPUnit config namespace.
