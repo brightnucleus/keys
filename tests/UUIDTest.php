@@ -15,7 +15,6 @@ namespace BrightNucleus\Keys;
 
 use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\UuidInterface;
-use Ramsey\Uuid\Uuid as RamseyUUID;
 
 /**
  * Class UUIDTest.
@@ -70,7 +69,7 @@ final class UUIDTest extends TestCase
      */
     public function it_can_be_created_as_v3()
     {
-        $object = UUID::uuid3(RamseyUUID::NAMESPACE_URL, self::TEST_URL1);
+        $object = UUID::uuid3(UUID::NAMESPACE_URL, self::TEST_URL1);
         $this->assertInstanceOf(UUID::class, $object);
         $this->assertEquals(3, $object->getVersion());
     }
@@ -98,7 +97,7 @@ final class UUIDTest extends TestCase
      */
     public function it_can_be_created_as_v5()
     {
-        $object = UUID::uuid5(RamseyUUID::NAMESPACE_URL, self::TEST_URL1);
+        $object = UUID::uuid5(UUID::NAMESPACE_URL, self::TEST_URL1);
         $this->assertInstanceOf(UUID::class, $object);
         $this->assertEquals(5, $object->getVersion());
     }
@@ -112,7 +111,7 @@ final class UUIDTest extends TestCase
      */
     public function it_can_be_serialized()
     {
-        $object     = UUID::uuid5(RamseyUUID::NAMESPACE_URL, self::TEST_URL1);
+        $object     = UUID::uuid5(UUID::NAMESPACE_URL, self::TEST_URL1);
         $serialized = serialize($object);
         $this->assertEquals(self::SERIALIZED_UUID, $serialized);
     }
@@ -173,8 +172,8 @@ final class UUIDTest extends TestCase
      */
     public function it_produces_same_uuid3s_on_subsequent_calls_with_same_arguments()
     {
-        $object1 = UUID::uuid3(RamseyUUID::NAMESPACE_URL, self::TEST_URL1);
-        $object2 = UUID::uuid3(RamseyUUID::NAMESPACE_URL, self::TEST_URL1);
+        $object1 = UUID::uuid3(UUID::NAMESPACE_URL, self::TEST_URL1);
+        $object2 = UUID::uuid3(UUID::NAMESPACE_URL, self::TEST_URL1);
         $this->assertTrue($object1->equals($object2));
         $this->assertEquals($object1, $object2);
         $this->assertEquals((string)$object1, (string)$object2);
@@ -189,8 +188,8 @@ final class UUIDTest extends TestCase
      */
     public function it_produces_different_uuid3s_on_subsequent_calls_with_differing_arguments()
     {
-        $object1 = UUID::uuid3(RamseyUUID::NAMESPACE_URL, self::TEST_URL1);
-        $object2 = UUID::uuid3(RamseyUUID::NAMESPACE_URL, self::TEST_URL2);
+        $object1 = UUID::uuid3(UUID::NAMESPACE_URL, self::TEST_URL1);
+        $object2 = UUID::uuid3(UUID::NAMESPACE_URL, self::TEST_URL2);
         $this->assertFalse($object1->equals($object2));
         $this->assertNotEquals($object1, $object2);
         $this->assertNotEquals((string)$object1, (string)$object2);
@@ -221,8 +220,8 @@ final class UUIDTest extends TestCase
      */
     public function it_produces_same_uuid5s_on_subsequent_calls_with_same_arguments()
     {
-        $object1 = UUID::uuid5(RamseyUUID::NAMESPACE_URL, self::TEST_URL1);
-        $object2 = UUID::uuid5(RamseyUUID::NAMESPACE_URL, self::TEST_URL1);
+        $object1 = UUID::uuid5(UUID::NAMESPACE_URL, self::TEST_URL1);
+        $object2 = UUID::uuid5(UUID::NAMESPACE_URL, self::TEST_URL1);
         $this->assertTrue($object1->equals($object2));
         $this->assertEquals($object1, $object2);
         $this->assertEquals((string)$object1, (string)$object2);
@@ -237,8 +236,8 @@ final class UUIDTest extends TestCase
      */
     public function it_produces_different_uuid5s_on_subsequent_calls_with_differing_arguments()
     {
-        $object1 = UUID::uuid5(RamseyUUID::NAMESPACE_URL, self::TEST_URL1);
-        $object2 = UUID::uuid5(RamseyUUID::NAMESPACE_URL, self::TEST_URL2);
+        $object1 = UUID::uuid5(UUID::NAMESPACE_URL, self::TEST_URL1);
+        $object2 = UUID::uuid5(UUID::NAMESPACE_URL, self::TEST_URL2);
         $this->assertFalse($object1->equals($object2));
         $this->assertNotEquals($object1, $object2);
         $this->assertNotEquals((string)$object1, (string)$object2);

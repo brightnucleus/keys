@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased] - 2017-07-05
 ### Changed
 - Declare strict types in every file.
+- Imported namespace constants into `UUID` class.
 
 ## [0.1.1] - 2017-07-05
 ### Changed
